@@ -22,7 +22,7 @@ The script is very simple. The script...
 Follow these instructions:
 
 ### 1. Install Hub
-You need Hub to run special git commands from the command line.
+You need `Hub` to run special git commands from the command line.
 
 If you have `homebrew`, you can install by running this command:
 
