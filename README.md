@@ -37,7 +37,7 @@ Otherwise, please follow [Hub's Official Installation Instructions](https://gith
 
 ### 2. Enable the 'delete_repo' scope
 1. Navigate to [github.com/settings/tokens](https://github.com/settings/tokens)
-2. Find the token for hub
+2. Find the token for `hub`
 3. Check the box for "delete_repo"
 4. Confirm the change by clicking the "Update token" button at the bottom
 
