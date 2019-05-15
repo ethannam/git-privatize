@@ -18,7 +18,6 @@ cd "$parent_path"
 
 # Get total number of repos to privatize
 total_repos=$(find $parent_path -type d -maxdepth 1 | wc -l)
-((total_repos--)) # the command above counts the shell script, so decrement by 1
 
 # Bold/normal font formatting helpers
 bold=$(tput bold)
