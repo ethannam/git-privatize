@@ -1,0 +1,66 @@
+#!/bin/bash
+# A script for batch privatization of GitHub repositories
+
+# Get user's GitHub username
+# Ask for confirmation
+confirmation="n"
+while [ "$confirmation" != "${confirmation#[Nn]}" ];do
+  printf "\nEnter your GitHub username: "
+  read username
+  printf "\nYou entered: $username"
+  printf "\nIs this correct (y/n)? "
+  read confirmation
+done
+
+# Get root folder's path
+parent_path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
+cd "$parent_path"
+
+# Get total number of repos to privatize
+total_repos=$(find $parent_path -type d -maxdepth 1 | wc -l)
+((total_repos--)) # the command above counts the shell script, so decrement by 1
+
+# Bold/normal font formatting helpers
+bold=$(tput bold)
+normal=$(tput sgr0)
+
+# Initialize count
+count=1
+
+# For each file in the current directory...
+for file in *; do
+  # If the file is a directory...
+  if [ -d "$file" ]; then
+    # cd into the directory
+    cd "$file"
+
+    message="Deleting remote repo $file on GitHub..."
+    printf "\n\n${bold}$message${normal}\n"
+    hub delete -y $file # hub command to delete the directory, -y flag negates asking for confirmation
+
+    message="Creating new private GitHub repo with name $file..."
+    printf "\n\n${bold}$message${normal}\n"
+    hub create -p $file # hub command to create a new remote repo, -p flag sets the repo to private
+
+    message="Setting this local repository's remote URL to the recently created private repo's URL..."
+    printf "\n\n${bold}$message${normal}\n"
+    git remote set-url origin git@github.com:$username/$file.git # git command to set the remote url
+    printf "Set new remote url.\n"
+
+    message="Pushing to GitHub..."
+    printf "\n\n${bold}$message${normal}\n"
+    git push
+
+    message="Successfully privatized repo $count of $total_repos"
+    printf "\n\n${bold}$message${normal}\n"
+
+    # Increment the count
+    ((count++))
+
+    # cd back to the root folder
+    cd ..
+  fi
+done
+
+message="All done 🤗 🤗 🤗"
+printf "\n\n${bold}$message${normal}\n"
