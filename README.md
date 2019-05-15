@@ -1,5 +1,5 @@
 # git-privatize
-A shell script for batch privatization of GitHub repositories
+A bash script for bulk privatization of GitHub repositories
 
 ## Why does this exist?
 GitHub doesn't allow you to make multiple repositories private at one time through their website. Their web app forces you to navigate to each repository's settings page and type in the repository name to make it private.
@@ -7,9 +7,9 @@ GitHub doesn't allow you to make multiple repositories private at one time throu
 ![Alt Text](https://media.giphy.com/media/bWM2eWYfN3r20/giphy.gif)
 
 ## How does it work?
-The shell script is very simple. The script...
+The script is very simple. The script...
 
-1. Assumes all the repositories you want to make private exist in the same folder as the shell script itself.
+1. Assumes all the repositories you want to make private are in 1 root folder.
 2. CD's into each folder.
 3. Deletes the remote repository on GitHub. Your local repository will remain intact.
 4. Creates a new remote repository on GitHub using the same name as the local repository. **The new repository is automatically set to private.**
@@ -22,9 +22,9 @@ The shell script is very simple. The script...
 Follow these instructions:
 
 ### 1. Install Hub
-You need this to run special git commands from the command line.
+You need Hub to run special git commands from the command line.
 
-If you have homebrew, you can install by running this command:
+If you have `homebrew`, you can install by running this command:
 
 ```
 $ brew install hub
@@ -57,19 +57,40 @@ Try push/pulling and see if GitHub asks you for your credentials.
 ### 5. Move the repositories you want to make private into a single root folder
 The folder name does not matter.
 
-### 6. Copy the shell script into the root folder
+### 6. Install git-privatize
 
-## Running the Script
-You can run the script by CD-ing to the root folder and running the command:
+Installation with `curl`:
+
+```bash
+curl -L -O https://raw.githubusercontent.com/ethannam/git-privatize/master/git-privatize && sudo mv git-privatize /usr/local/bin/ && sudo chmod +x /usr/local/bin/git-privatize
+```
+
+## Usage Example
+CD into the root folder that contains the repositories you want to make private.
+
+For example:
+```
+$ pwd
+/Users/username/workspace
+$ cd root-folder
+$ pwd
+/Users/username/workspace/root-folder
+```
+
+From this root folder, if you run the ls command, you should see a list of the repos to make private.
 
 ```
-./git-privatize.sh
+$ ls -1d */
+repo-name-1/
+repo-name-2/
+repo-name-3/
+repo-name-4/
+repo-name-5/
 ```
 
-If you get an error that permission is denied, run:
-
+From this root folder, run the command below. **You do not have to CD into each repo individually. The command below takes care of that for you.**
 ```
-chmod +x git-privatize.sh
+git privatize
 ```
 
 ## Enjoy!
