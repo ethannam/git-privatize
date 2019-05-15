@@ -71,10 +71,10 @@ CD into the root folder that contains the repositories you want to make private.
 For example:
 ```
 $ pwd
-/Users/username/workspace
+/Users/ethannam/workspace
 $ cd root-folder
 $ pwd
-/Users/username/workspace/root-folder
+/Users/ethannam/workspace/root-folder
 ```
 
 From this root folder, if you run the ls command, you should see a list of the repos to make private.
