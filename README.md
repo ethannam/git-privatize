@@ -59,10 +59,16 @@ The folder name does not matter.
 
 ### 6. Install git-privatize
 
-Installation with `curl`:
+One-line installation with `curl`:
 
 ```bash
 curl -L -O https://raw.githubusercontent.com/ethannam/git-privatize/master/git-privatize && sudo mv git-privatize /usr/local/bin/ && sudo chmod +x /usr/local/bin/git-privatize
+```
+
+If you prefer to clone down this repo, make sure you move the git-privatize executable to your /usr/local/bin/ folder and set its +x permission. You can do that by running this line:
+
+```
+sudo mv git-privatize /usr/local/bin/ && sudo chmod +x /usr/local/bin/git-privatize
 ```
 
 ## Usage Example
