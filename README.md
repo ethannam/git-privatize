@@ -59,7 +59,7 @@ The folder name does not matter.
 
 ### 6. Install git-privatize
 
-One-line installation with `curl`:
+One-line installation with `curl` ⬇️. Enter your computer password if prompted. 
 
 ```bash
 curl -L -O https://raw.githubusercontent.com/ethannam/git-privatize/master/git-privatize && sudo mv git-privatize /usr/local/bin/ && sudo chmod +x /usr/local/bin/git-privatize
