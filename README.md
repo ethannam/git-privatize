@@ -10,12 +10,12 @@ GitHub doesn't allow you to make multiple repositories private at one time throu
 The script is very simple. The script...
 
 1. Assumes all the repositories you want to make private are in 1 root folder.
-2. CD's into each folder.
+2. `cd`s into each folder.
 3. Deletes the remote repository on GitHub. Your local repository will remain intact.
 4. Creates a new remote repository on GitHub using the same name as the local repository. **The new repository is automatically set to private.**
 5. Sets the local repository's remote URL to the new repository's remote URL.
 6. Pushes the local repository's contents to GitHub.
-7. CD's back to the root folder.
+7. `cd`s back to the root folder.
 8. Repeats steps 2-7 for all remaining repositories in the root folder.
 
 ## Getting Started
@@ -66,7 +66,7 @@ curl -L -O https://raw.githubusercontent.com/ethannam/git-privatize/master/git-p
 ```
 
 ## Usage Example
-CD into the root folder that contains the repositories you want to make private.
+`cd` into the root folder that contains the repositories you want to make private.
 
 For example:
 ```
@@ -77,7 +77,7 @@ $ pwd
 /Users/ethannam/workspace/root-folder
 ```
 
-From this root folder, if you run the ls command, you should see a list of the repos to make private.
+From this root folder, if you run the `ls` command, you should see a list of the repos to make private.
 
 ```
 $ ls -1d */
@@ -88,7 +88,7 @@ repo-name-4/
 repo-name-5/
 ```
 
-From this root folder, run the command below. **You do not have to CD into each repo individually. The command below takes care of that for you.**
+From this root folder, run the command below. **You do not have to `cd` into each repo individually. The command below takes care of that for you.**
 ```
 git privatize
 ```
