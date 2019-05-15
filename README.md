@@ -2,7 +2,7 @@
 A shell script for batch privatization of GitHub repositories
 
 ## Why does this exist?
-GitHub doesn't allow you to make multiple repositories private at one time. Their web app forces you to navigate to each repository's settings page and type in the repository name as a form of confirmation.
+GitHub doesn't allow you to make multiple repositories private at one time through their website. Their web app forces you to navigate to each repository's settings page and type in the repository name to make it private.
 
 ![Alt Text](https://media.giphy.com/media/bWM2eWYfN3r20/giphy.gif)
 
@@ -71,3 +71,6 @@ If you get an error that permission is denied, run:
 ```
 chmod +x git-privatize.sh
 ```
+
+## Enjoy!
+![Alt Text](https://media.giphy.com/media/6brH8dM3zeMyA/giphy.gif)
